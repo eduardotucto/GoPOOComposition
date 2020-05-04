@@ -15,6 +15,16 @@ type Invoice struct {
 	items   []invoiceitem.Item // un invoice tiene n items
 }
 
+// New retorna a una nueva factura (invoice) <- constructor
+func New(country, city string, client customer.Customer, items []invoiceitem.Item) Invoice {
+	return Invoice{
+		country: country,
+		city:    city,
+		client:  client,
+		items:   items,
+	}
+}
+
 // SetTotal es el setter de Invoice.total
 func (i *Invoice) SetTotal() {
 	// recorre la cantidad de datos que tenga items
